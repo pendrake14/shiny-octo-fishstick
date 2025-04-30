@@ -11,7 +11,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DJANGO_SETTINGS_MODULE=config.settings.dev
+      - DJANGO_SETTINGS_MODULE=config.settings.base
       - DATABASE_URL=postgres://postgres:postgres@db:5432/experiencias
       - REDIS_URL=redis://redis:6379/0
       - AWS_REGION=eu-west-1
