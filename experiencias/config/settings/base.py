@@ -12,6 +12,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# Custom user model
+AUTH_USER_MODEL = 'users.User'
+
+# Authentication
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -20,6 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Local apps
+    'apps.users',
 ]
 
 MIDDLEWARE = [
