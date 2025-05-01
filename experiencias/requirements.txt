@@ -33,3 +33,6 @@ django-extensions==3.2.3
 asgiref==3.7.2
 daphne==4.1.0
 drf-spectacular[sidecar]
+
+# Testing
+coverage==7.8.0
