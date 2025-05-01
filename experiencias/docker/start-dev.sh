@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# docker compose down -v
 # Build and start containers
 docker compose -f docker-compose.dev.yml up --build -d
 
@@ -21,11 +21,12 @@ if not User.objects.filter(username='admin').exists():
 # Collect static files
 docker compose -f docker-compose.dev.yml exec web python manage.py collectstatic --noinput
 
-# Show logs
-docker compose -f docker-compose.dev.yml logs -f
-
 echo "Development environment is ready!"
 echo "Django server: http://localhost:8000"
 echo "Admin interface: http://localhost:8000/admin"
 echo "Username: admin"
 echo "Password: admin" 
+
+# Show logs
+docker compose -f docker-compose.dev.yml logs -f
+
