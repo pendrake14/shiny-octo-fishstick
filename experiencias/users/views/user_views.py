@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from users.serializers import UserSerializer
 from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from drf_spectacular.utils import extend_schema
 
-from .serializers import UserSerializer
+
+
 
 # Create your views here.
 
@@ -20,8 +22,8 @@ class UserRegistrationView(generics.CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
+        print(serializer.data)
         return Response(
             {"message": "User created successfully"},
             status=status.HTTP_201_CREATED,
