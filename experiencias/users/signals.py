@@ -2,6 +2,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
 
+from users.models.user_profile import UserProfile
+
 from .models import User
 
 
@@ -12,4 +14,4 @@ def create_user_profile(sender, instance, created, **kwargs):
     """
     if created:
         # Create any additional user-related objects here if needed
-        pass 
+        UserProfile.objects.create(user=instance) 
