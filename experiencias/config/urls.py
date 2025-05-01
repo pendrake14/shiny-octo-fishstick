@@ -14,4 +14,5 @@ swagger = [
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('api/users/', include('users.urls')),
 ] + swagger
